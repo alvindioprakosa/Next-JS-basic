@@ -12,7 +12,7 @@ const LoginViews= () => {
         <div className={styles.navbar}>
             <h1 className="text-xl text-black">Login</h1>
             <button onClick={() => handleLogin()}>
-                Login Again
+                Login
             </button>
             <Link href="/auth/register">
                 <span className="text-2xl text-yellow-500">Register</span>
