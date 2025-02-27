@@ -1,6 +1,6 @@
 const Custom404 = () => {
     return (
-        <div className="flex justify-center items-center">Halaman Tidak Ditemukan</div>
+        <div className="flex justify-center items-center">Page not found!</div>
     )
 };
 

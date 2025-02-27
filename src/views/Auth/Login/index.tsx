@@ -15,7 +15,7 @@ const LoginViews= () => {
                 Login
             </button>
             <Link href="/auth/register">
-                <span className="text-2xl text-yellow-500">Register</span>
+                <span className="text-2xl text-yellow-400">Register</span>
             </Link>
         </div>
     );
