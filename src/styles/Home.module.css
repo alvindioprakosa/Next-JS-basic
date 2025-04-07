@@ -1,3 +1,17 @@
+:root {
+  --max-width: 1024px;
+  --font-mono: 'Courier New', monospace;
+  --card-rgb: 255, 255, 255;
+  --card-border-rgb: 0, 0, 0;
+  --callout-rgb: 200, 200, 200;
+  --callout-border-rgb: 150, 150, 150;
+  --border-radius: 8px;
+  --background-start-rgb: 255, 255, 255;
+  --background-end-rgb: 240, 240, 240;
+  --primary-glow: #f0f;
+  --secondary-glow: #0ff;
+}
+
 .main {
   display: flex;
   flex-direction: column;
@@ -8,10 +22,10 @@
 }
 
 .description {
-  display: inherit;
-  justify-content: inherit;
-  align-items: inherit;
-  font-size: 0.85rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: clamp(0.8rem, 2vw, 1rem);
   max-width: var(--max-width);
   width: 100%;
   z-index: 2;
@@ -41,9 +55,10 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(25%, auto));
-  max-width: 100%;
-  width: var(--max-width);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: var(--max-width);
 }
 
 .card {
@@ -80,9 +95,18 @@
   padding: 4rem 0;
 }
 
+.center::before,
+.center::after {
+  content: "";
+  left: 50%;
+  position: absolute;
+  filter: blur(45px);
+  transform: translateZ(0);
+  border-radius: 50%;
+}
+
 .center::before {
   background: var(--secondary-glow);
-  border-radius: 50%;
   width: 480px;
   height: 360px;
   margin-left: -400px;
@@ -95,23 +119,15 @@
   z-index: -1;
 }
 
-.center::before,
-.center::after {
-  content: "";
-  left: 50%;
-  position: absolute;
-  filter: blur(45px);
-  transform: translateZ(0);
-}
-
 .logo {
   position: relative;
 }
-/* Enable hover only on non-touch devices */
+
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
     background: rgba(var(--card-rgb), 0.1);
     border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    cursor: pointer;
   }
 
   .card:hover span {
@@ -119,13 +135,12 @@
   }
 }
 
-@media (prefers-reduced-motion) {
+@media (prefers-reduced-motion: reduce) {
   .card:hover span {
     transform: none;
   }
 }
 
-/* Mobile */
 @media (max-width: 700px) {
   .content {
     padding: 4rem;
@@ -202,7 +217,6 @@
   }
 }
 
-/* Tablet and Smaller Desktop */
 @media (min-width: 701px) and (max-width: 1120px) {
   .grid {
     grid-template-columns: repeat(2, 50%);
@@ -227,4 +241,3 @@
     transform: rotate(0deg);
   }
 }
-
