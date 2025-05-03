@@ -2,11 +2,13 @@
 
 import type { NextApiRequest, NextApiResponse } from "next";
 
+// Definisi tipe untuk respons
 type Data = {
   name: string;
   address: string;
 };
 
+// Handler utama
 export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
