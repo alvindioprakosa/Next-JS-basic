@@ -1,13 +1,12 @@
 import { useRouter } from "next/router";
 
 const DetailProduct = () => {
-  const { query } = useRouter(); // Mengambil parameter dari URL
-  console.log(query);            // Menampilkan semua query params di console
+  const { query } = useRouter();
 
   return (
     <div>
       <p>Detail Product</p>
-      <p>Product :{query.id} </p>  {/* Menampilkan ID dari URL */}
+      <p>Product: {query.id ? query.id : "Loading..."}</p>
     </div>
   );
 };
